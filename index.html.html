@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PANGS! SNACK — Keripik Pangsit Kriuk & Es Teh Segar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Titan One & Anton untuk Display Bold Retro, Caveat untuk Script, Poppins untuk Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Poppins:wght@400;600;700;800&family=Titan+One&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPurple: '#5e17eb',
+            brandPurpleDark: '#470ec2',
+            brandYellow: '#FFE047',
+            brandYellowBright: '#FFD60A',
+            brandRed: '#FF3B30',
+            brandCream: '#FFF8E7',
+            brandInk: '#1A0B3B',
+          },
+          fontFamily: {
+            display: ['"Titan One"', 'cursive'],
+            condensed: ['"Anton"', 'sans-serif'],
+            script: ['"Caveat"', 'cursive'],
+            sans: ['"Poppins"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Custom Retro Pop Styling */
+    body {
+      background-color: #FFF8E7;
+      color: #1A0B3B;
+      overflow-x: hidden;
+    }
+
+    /* Giant Hero Outline & 3D Extrude Text */
+    .hero-giant-text {
+      font-family: 'Titan One', cursive;
+      color: #FFE047;
+      -webkit-text-stroke: 4px #FFFFFF;
+      paint-order: stroke fill;
+      text-shadow:
+        0px 8px 0px #FF3B30,
+        0px 14px 25px rgba(26, 11, 59, 0.35);
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero-giant-text {
+        -webkit-text-stroke: 7px #FFFFFF;
+        text-shadow:
+          0px 12px 0px #FF3B30,
+          0px 20px 35px rgba(26, 11, 59, 0.4);
+      }
+    }
+
+    /* Section Title 3D Retro */
+    .retro-heading {
+      font-family: 'Anton', sans-serif;
+      color: #5e17eb;
+      text-shadow: 3px 3px 0px #FFE047;
+      letter-spacing: 0.02em;
+    }
+
+    /* Neo-Brutalist Retro Card */
+    .pop-card {
+      background: #FFFFFF;
+      border: 3px solid #1A0B3B;
+      box-shadow: 6px 6px 0px #1A0B3B;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+    }
+
+    .pop-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 9px 9px 0px #FF3B30;
+    }
+
+    /* Pill Button Retro */
+    .pop-pill {
+      border: 2.5px solid #1A0B3B;
+      box-shadow: 0px 4px 0px #1A0B3B;
+      transition: all 0.15s ease;
+    }
+
+    .pop-pill:active {
+      transform: translateY(3px);
+      box-shadow: 0px 1px 0px #1A0B3B;
+    }
+
+    /* Floating Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(1.5deg); }
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-7px) scale(1.03); }
+    }
+
+    @keyframes wiggleBadge {
+      0%, 100% { transform: rotate(-6deg); }
+      50% { transform: rotate(4deg); }
+    }
+
+    .animate-float-product {
+      animation: floatSlow 4.5s ease-in-out infinite;
+    }
+
+    .animate-float-bubble {
+      animation: floatBubble 3.2s ease-in-out infinite;
+    }
+
+    .animate-wiggle {
+      animation: wiggleBadge 3.8s ease-in-out infinite;
+    }
+
+    /* Subtle radial glow behind central product */
+    .hero-radial-glow {
+      background: radial-gradient(circle at 50% 48%, rgba(255, 224, 71, 0.32) 0%, rgba(94, 23, 235, 0) 65%);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF8E7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #5e17eb;
+      border-radius: 9999px;
+      border: 2px solid #FFF8E7;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-brandYellow selection:text-brandInk">
+
+  <!-- ==================== HERO SECTION (#5e17eb DOMINANT) ==================== -->
+  <header class="relative bg-brandPurple text-white pt-4 pb-24 md:pb-36 overflow-hidden hero-radial-glow">
+
+    <!-- Decorative Halftone / Sparkle Dots in Background -->
+    <div class="pointer-events-none absolute inset-0 opacity-15" style="background-image: radial-gradient(#FFE047 2px, transparent 2px); background-size: 32px 32px;"></div>
+
+    <!-- TOP NAVBAR (Mirrors Reference: Logo Left, White Pill Buttons Right) -->
+    <nav class="relative z-30 max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
+      <!-- Uploaded Brand Logo (logo.jpeg) -->
+      <a href="#" class="group flex items-center gap-2 focus:outline-none">
+        <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-brandPurple flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <img
+            src="logo.jpeg"
+            alt="Logo PANGS! SNACK"
+            class="w-full h-full object-contain scale-110"
+            onerror="this.onerror=null; this.src='https://placehold.co/200x200/5e17eb/FFE047?text=PANGS!+SNACK';"
+          />
+        </div>
+      </a>
+
+      <!-- Right Nav Pills -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="#menu-section" onclick="filterMenu('keripik')" class="hidden sm:inline-flex items-center justify-center bg-white text-brandInk font-condensed tracking-wider text-sm sm:text-base px-5 py-2.5 rounded-full pop-pill hover:bg-brandYellow">
+          KERIPIK
+        </a>
+        <a href="#menu-section" onclick="filterMenu('esteh')" class="hidden sm:inline-flex items-center justify-center bg-white text-brandInk font-condensed tracking-wider text-sm sm:text-base px-5 py-2.5 rounded-full pop-pill hover:bg-brandYellow">
+          ES TEH
+        </a>
+        <button
+          onclick="toggleCartDrawer(true)"
+          class="relative inline-flex items-center gap-2 bg-white text-brandInk font-condensed tracking-wider text-sm sm:text-base px-5 py-2.5 rounded-full pop-pill hover:bg-brandYellow cursor-pointer"
+          aria-label="Buka Keranjang & Menu"
+        >
+          <span>MENU</span>
+          <svg class="w-4 h-4 stroke-[2.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <span id="nav-cart-badge" class="ml-0.5 bg-brandRed text-white text-xs font-sans font-extrabold px-2 py-0.5 rounded-full border border-brandInk">
+            0
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO STAGE: OVERSIZED BACKGROUND TEXT + CENTRAL PRODUCT + LEFT COPY + THOUGHT BUBBLE CTA -->
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 mt-2 sm:mt-4 flex flex-col items-center">
+
+      <!-- Giant Yellow Background Word (Like "BURGER" in reference) -->
+      <div class="w-full text-center relative select-none pointer-events-none">
+        <h1 id="hero-bg-word" class="hero-giant-text text-[21vw] sm:text-[19vw] lg:text-[215px] uppercase tracking-tight">
+          KRIUK!
+        </h1>
+
+        <!-- Cute Retro Mascot / Chili Sticker Badge on Top Right of Giant Text (Echoing the cartoon mascot in reference) -->
+        <div class="hidden md:flex flex-col items-center justify-center absolute -top-2 right-[6%] lg:right-[10%] bg-brandYellow text-brandInk border-4 border-white rounded-full w-24 h-24 shadow-xl animate-wiggle rotate-6">
+          <span class="text-3xl leading-none">🔥</span>
+          <span class="font-condensed text-xs tracking-wider uppercase mt-1 text-brandRed">CUMA</span>
+          <span class="font-condensed text-sm leading-none">Rp 5.000!</span>
+        </div>
+      </div>
+
+      <!-- Main Foreground Composition Grid -->
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-6 -mt-8 sm:-mt-16 md:-mt-24 lg:-mt-28 relative z-20">
+
+        <!-- LEFT HERO COPY (Condensed White Uppercase like Reference) -->
+        <div class="lg:col-span-4 order-2 lg:order-1 text-center lg:text-left px-2 sm:px-4">
+          <div class="inline-flex items-center gap-2 bg-brandRed text-white font-condensed tracking-wider text-xs sm:text-sm px-3.5 py-1 rounded-full border-2 border-white shadow-md mb-3">
+            <span>🔥 SERBA Rp 5.000 &amp; FREE DELIVERY</span>
+          </div>
+          <p class="font-condensed uppercase text-white text-lg sm:text-xl md:text-2xl leading-snug tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]">
+            KERIPIK PANGSIT 150GR RENYAH DENGAN BUMBU BALADO &amp; JAGUNG BAKAR GURIH, DITEMANI ES TEH JUMBO SUPER SEGAR!
+          </p>
+
+          <!-- Interactive Hero Spotlight Switcher -->
+          <div class="mt-5 inline-flex bg-brandPurpleDark/80 backdrop-blur-sm p-1.5 rounded-full border-2 border-white/40">
+            <button
+              id="btn-spotlight-keripik"
+              onclick="switchHeroProduct('keripik')"
+              class="px-4 py-1.5 rounded-full font-condensed text-sm tracking-wider bg-brandYellow text-brandInk shadow transition-all cursor-pointer"
+            >
+              🌶️ KERIPIK 150GR (5K)
+            </button>
+            <button
+              id="btn-spotlight-esteh"
+              onclick="switchHeroProduct('esteh')"
+              class="px-4 py-1.5 rounded-full font-condensed text-sm tracking-wider text-white hover:text-brandYellow transition-all cursor-pointer"
+            >
+              🧊 ES TEH JUMBO (5K)
+            </button>
+          </div>
+        </div>
+
+        <!-- CENTER HERO PRODUCT CARD (Overlapping the Giant Text!) -->
+        <div class="lg:col-span-4 order-1 lg:order-2 flex justify-center relative">
+          <div class="relative w-[270px] sm:w-[320px] md:w-[350px] animate-float-product">
+            <!-- Secondary peeking product card behind for dynamic duo depth -->
+            <div
+              onclick="toggleHeroProduct()"
+              title="Klik untuk tukar tampilan produk!"
+              class="cursor-pointer absolute -right-6 sm:-right-10 top-6 w-40 sm:w-48 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-2xl rotate-12 transition-transform hover:rotate-6 hover:scale-105 bg-brandPurpleDark"
+            >
+              <img
+                id="hero-secondary-img"
+                src="esteh.png"
+                alt="Es Teh Jumbo PANGS! SNACK"
+                class="w-full h-full object-contain p-2"
+                onerror="this.onerror=null; this.src='https://placehold.co/400x530/5e17eb/FFE047?text=ES+TEH+JUMBO';"
+              />
+              <div class="absolute bottom-2 inset-x-2 bg-brandInk/85 text-brandYellow font-condensed text-xs text-center py-1 rounded-full">
+                KLIK TUKAR ⇄
+              </div>
+            </div>
+
+            <!-- Primary Featured Product Frame -->
+            <div class="relative z-10 w-full aspect-[4/5] rounded-[2rem] overflow-hidden border-[5px] border-white shadow-[0_22px_50px_rgba(18,5,48,0.65)] bg-brandYellow">
+              <img
+                id="hero-primary-img"
+                src="pangsit.png"
+                alt="Keripik Pangsit 150gr PANGS! SNACK"
+                class="w-full h-full object-contain p-4 pb-16 transition-all duration-500"
+                onerror="this.onerror=null; this.src='https://placehold.co/500x625/5e17eb/FFE047?text=KERIPIK+PANGSIT';"
+              />
+              <!-- Bottom Tag Overlay -->
+              <div class="absolute bottom-3 left-3 right-3 bg-brandInk/90 backdrop-blur-md text-white px-4 py-2 rounded-2xl border-2 border-brandYellow flex items-center justify-between">
+                <div>
+                  <span id="hero-product-tag" class="block text-[11px] font-bold uppercase tracking-widest text-brandYellow">KEMASAN 150 GRAM</span>
+                  <span id="hero-product-title" class="font-condensed text-base sm:text-lg tracking-wide">KERIPIK PANGSIT</span>
+                </div>
+                <span id="hero-product-price" class="bg-brandRed text-white font-condensed text-sm sm:text-base px-3 py-1 rounded-xl border border-white">
+                  Rp 5.000
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT FLOATING THOUGHT-BUBBLE CTA BUTTON ("ORDER NOW" like Reference!) -->
+        <div class="lg:col-span-4 order-3 flex justify-center lg:justify-start lg:pl-6 mt-2 lg:mt-16">
+          <a
+            href="#menu-section"
+            class="group relative inline-block animate-float-bubble focus:outline-none"
+            aria-label="Order Now Pangs Snack"
+          >
+            <!-- Custom Cloud / Thought Bubble SVG matching reference -->
+            <svg class="w-52 sm:w-60 h-auto drop-shadow-[0_10px_18px_rgba(20,5,55,0.45)] transition-transform duration-300 group-hover:scale-105" viewBox="0 0 260 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Main Cloud Bubble -->
+              <path
+                d="M66 112C44.5 112 28 96.5 28 77C28 60.5 40 46.8 56 43.2C61.5 24.5 79 11 100 11C115.5 11 129.2 18.5 137.5 30C144.8 25.5 153.5 23 163 23C188.5 23 209 42.5 210.8 67.5C225.5 72.5 236 86.2 236 102.5C236 123 219.2 139.5 198.5 139.5C191 139.5 184 137.3 178.2 133.5C170.5 143.5 158.2 150 144.5 150C131.5 150 119.8 144.2 112 135C105.2 139.5 97 142 88 142C72.5 142 59.2 133.2 53 120.5"
+                fill="#4D12C7"
+                stroke="#FFFFFF"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <!-- Inner fill patch to ensure seamless cloud interior -->
+              <ellipse cx="132" cy="82" rx="82" ry="46" fill="#4D12C7" />
+              <!-- Trailing Thought Bubbles -->
+              <circle cx="212" cy="148" r="9" fill="#4D12C7" stroke="#FFFFFF" stroke-width="3.5" />
+              <circle cx="230" cy="161" r="5.5" fill="#4D12C7" stroke="#FFFFFF" stroke-width="3" />
+              <!-- ORDER NOW Text -->
+              <text
+                x="132"
+                y="91"
+                text-anchor="middle"
+                fill="#FFFFFF"
+                font-family="Anton, sans-serif"
+                font-size="31"
+                letter-spacing="1.5"
+              >
+                ORDER NOW
+              </text>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BOTTOM CURVED CREAM WAVE DIVIDER + ARCHED CURVED TEXT (Signature element from reference!) -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+      <svg class="relative block w-full h-[115px] sm:h-[165px] md:h-[200px]" viewBox="0 0 1440 220" preserveAspectRatio="none">
+        <!-- Path for the arched text floating just above the cream wave -->
+        <defs>
+          <path id="waveTextPath" d="M -40,175 Q 720,25 1480,175" />
+        </defs>
+
+        <!-- Cream Wave Shape -->
+        <path d="M0,190 Q720,45 1440,190 L1440,220 L0,220 Z" fill="#FFF8E7" />
+
+        <!-- Arched Bold Uppercase Text along the curve -->
+        <text fill="#FFFFFF" font-family="Anton, sans-serif" font-size="32" letter-spacing="3">
+          <textPath href="#waveTextPath" startOffset="50%" text-anchor="middle">
+            KERIPIK PANGSIT 150GR BALADO &amp; JAGUNG BAKAR  –  ES TEH JUMBO SEGAR  –  SERBA Rp 5.000  –  @PANGS.SNACK
+          </textPath>
+        </text>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ==================== SECTION 2: MENU & COMBO DEALS (#FFF8E7 CREAM) ==================== -->
+  <main id="menu-section" class="relative bg-brandCream pt-4 pb-20 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Heading (Mirrors "READY TO EAT / THE PIT FLAME BURGER" in reference) -->
+      <div class="text-center mb-10 sm:mb-14">
+        <span class="font-script text-brandPurple text-3xl sm:text-4xl md:text-5xl font-bold block -mb-2 transform -rotate-2">
+          Harga Pelajar, Rasa Juara!
+        </span>
+        <h2 class="retro-heading text-4xl sm:text-6xl md:text-7xl uppercase">
+          MENU PANGS! SNACK
+        </h2>
+        <p class="mt-3 text-brandInk/80 max-w-2xl mx-auto text-sm sm:text-base font-medium">
+          Pilih Keripik Pangsit 150gr (Balado atau Jagung Bakar) dan Es Teh Ukuran Jumbo masing-masing cuma <span class="font-bold text-brandPurple">Rp 5.000</span>, atau ambil Paket Combo lengkap <span class="font-bold text-brandRed">Rp 10.000</span>!
+        </p>
+
+        <!-- Category Filter Tabs -->
+        <div class="mt-6 inline-flex flex-wrap justify-center gap-2 sm:gap-3">
+          <button onclick="filterMenu('all')" data-filter="all" class="filter-btn bg-brandPurple text-white font-condensed tracking-wider px-5 py-2 rounded-full pop-pill text-sm sm:text-base cursor-pointer">
+            SEMUA MENU (3)
+          </button>
+          <button onclick="filterMenu('keripik')" data-filter="keripik" class="filter-btn bg-white text-brandInk font-condensed tracking-wider px-5 py-2 rounded-full pop-pill text-sm sm:text-base hover:bg-brandYellow cursor-pointer">
+            🌶️ KERIPIK 150GR
+          </button>
+          <button onclick="filterMenu('esteh')" data-filter="esteh" class="filter-btn bg-white text-brandInk font-condensed tracking-wider px-5 py-2 rounded-full pop-pill text-sm sm:text-base hover:bg-brandYellow cursor-pointer">
+            🧊 ES TEH JUMBO
+          </button>
+          <button onclick="filterMenu('kombo')" data-filter="kombo" class="filter-btn bg-white text-brandInk font-condensed tracking-wider px-5 py-2 rounded-full pop-pill text-sm sm:text-base hover:bg-brandYellow cursor-pointer">
+            🔥 PAKET COMBO
+          </button>
+        </div>
+      </div>
+
+      <!-- PRODUCT CARDS GRID -->
+      <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 gap-7 sm:gap-8">
+        <!-- Cards rendered dynamically by JavaScript so variants & cart stay 100% synced -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== SECTION 3: WHY PANGS! SNACK & BRAND PROMO STRIP ==================== -->
+  <section class="bg-brandYellow border-y-4 border-brandInk py-12 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div class="bg-white rounded-3xl p-6 border-3 border-brandInk shadow-[5px_5px_0px_#5e17eb]">
+        <div class="w-14 h-14 mx-auto bg-brandPurple text-brandYellow rounded-2xl flex items-center justify-center text-2xl font-bold border-2 border-brandInk mb-3">
+          ⚡
+        </div>
+        <h3 class="font-condensed text-2xl text-brandInk uppercase">100% KRIUK BARU DIGORENG</h3>
+        <p class="text-sm text-brandInk/80 mt-2">
+          Diproses higienis setiap hari tanpa minyak jelantah. Tekstur tipis renyah dengan taburan daun jeruk asli &amp; cabai pilihan.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 border-3 border-brandInk shadow-[5px_5px_0px_#FF3B30]">
+        <div class="w-14 h-14 mx-auto bg-brandRed text-white rounded-2xl flex items-center justify-center text-2xl font-bold border-2 border-brandInk mb-3">
+          🧊
+        </div>
+        <h3 class="font-condensed text-2xl text-brandInk uppercase">DAUN TEH PILIHAN &amp; GULA ASLI</h3>
+        <p class="text-sm text-brandInk/80 mt-2">
+          Racikan teh melati wangi yang sepet-segar dengan 100% gula tebu murni dan es batu kristal melimpah.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 border-3 border-brandInk shadow-[5px_5px_0px_#5e17eb]">
+        <div class="w-14 h-14 mx-auto bg-brandYellow text-brandInk rounded-2xl flex items-center justify-center text-2xl font-bold border-2 border-brandInk mb-3">
+          🛵
+        </div>
+        <h3 class="font-condensed text-2xl text-brandInk uppercase">FREE DELIVERY &amp; COD</h3>
+        <p class="text-sm text-brandInk/80 mt-2">
+          Gratis ongkir untuk pembelian paket kombo area sekitar! Pesan langsung lewat WhatsApp dalam hitungan detik.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER (#5e17eb BRAND MATCH) ==================== -->
+  <footer class="bg-brandPurple text-white pt-14 pb-10 px-4 sm:px-8 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/20 pb-10">
+      <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+        <img
+          src="logo.jpeg"
+          alt="Logo PANGS! SNACK"
+          class="w-24 h-24 object-contain rounded-2xl"
+          onerror="this.onerror=null; this.src='https://placehold.co/160x160/5e17eb/FFE047?text=PANGS!';"
+        />
+        <div>
+          <span class="inline-block bg-brandYellow text-brandInk font-condensed text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+            @pangs.snack
+          </span>
+          <h4 class="font-display text-2xl sm:text-3xl text-brandYellow drop-shadow-[0_3px_0_#FF3B30]">
+            TEMAN NGEMIL PALING ASIK!
+          </h4>
+          <p class="text-white/85 text-sm mt-1 max-w-md">
+            Keripik Pangsit Kriuk &amp; Es Teh Segar. Buka setiap hari pukul 10.00 – 22.00 WIB.
+          </p>
+          <a
+            href="https://wa.me/6283895345454?text=Halo%20PANGS!%20SNACK%2C%20saya%20mau%20tanya%20menu%20Keripik%20Pangsit%20%26%20Es%20Teh-nya%20dong!"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 mt-3 bg-white/15 hover:bg-white/25 text-brandYellow font-condensed tracking-wider text-base px-4 py-1.5 rounded-full border border-brandYellow/50 transition-colors"
+          >
+            <span>📲 WA ORDER: 0838-9534-5454</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3">
+        <button
+          onclick="toggleCartDrawer(true)"
+          class="bg-brandYellow text-brandInk font-condensed text-lg px-7 py-3 rounded-full pop-pill hover:bg-white cursor-pointer"
+        >
+          🛒 LIHAT KERANJANG (<span id="footer-cart-count">0</span>)
+        </button>
+        <a
+          href="https://wa.me/6283895345454?text=Halo%20PANGS!%20SNACK%2C%20saya%20mau%20pesan%20Keripik%20Pangsit%20%26%20Es%20Teh!"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-brandRed text-white font-condensed text-lg px-7 py-3 rounded-full border-2 border-white shadow-lg hover:scale-105 transition-transform"
+        >
+          💬 CHAT WA: 0838-9534-5454
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/75 gap-2">
+      <p>&copy; 2026 PANGS! SNACK. All Rights Reserved.</p>
+      <p>Dibuat dengan penuh kriuk &amp; kesegaran es teh.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING CART BUTTON (MOBILE & DESKTOP QUICK ACCESS) ==================== -->
+  <button
+    onclick="toggleCartDrawer(true)"
+    id="floating-cart-btn"
+    class="fixed bottom-5 right-5 z-40 bg-brandRed text-white border-3 border-white rounded-full px-5 py-3.5 shadow-[0_10px_25px_rgba(26,11,59,0.5)] flex items-center gap-2.5 font-condensed tracking-wider text-base hover:scale-105 transition-transform cursor-pointer"
+  >
+    <span>🛒 PESANAN</span>
+    <span id="floating-cart-count" class="bg-brandYellow text-brandInk font-sans font-extrabold text-xs px-2.5 py-0.5 rounded-full border border-brandInk">
+      0
+    </span>
+  </button>
+
+  <!-- ==================== INTERACTIVE CART & WHATSAPP CHECKOUT DRAWER ==================== -->
+  <div id="cart-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-brandInk/60 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-brandCream border-l-4 border-brandInk z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Drawer Header -->
+    <div class="bg-brandPurple text-white p-5 border-b-4 border-brandInk flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.jpeg" alt="Logo" class="w-11 h-11 object-contain rounded-xl" onerror="this.style.display='none'" />
+        <div>
+          <h3 class="font-condensed text-2xl tracking-wide text-brandYellow">KERANJANG PANGS!</h3>
+          <p class="text-xs text-white/80">Siap kirim &amp; gratis ongkir paket kombo</p>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="w-10 h-10 rounded-full bg-white text-brandInk font-bold border-2 border-brandInk flex items-center justify-center hover:bg-brandYellow cursor-pointer">
+        ✕
+      </button>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Items injected via JS -->
+    </div>
+
+    <!-- Drawer Footer / Checkout Form -->
+    <div class="p-5 bg-white border-t-4 border-brandInk space-y-3">
+      <div class="flex items-center justify-between text-sm font-semibold text-brandInk/75">
+        <span>Ongkos Kirim</span>
+        <span id="cart-shipping" class="text-brandPurple font-bold">GRATIS (PROMO)</span>
+      </div>
+      <div class="flex items-center justify-between text-xl font-condensed text-brandInk">
+        <span>TOTAL BAYAR</span>
+        <span id="cart-total" class="text-brandRed text-2xl">Rp 0</span>
+      </div>
+
+      <div class="pt-1">
+        <input
+          type="text"
+          id="customer-name"
+          placeholder="Nama Kamu (contoh: Budi)"
+          class="w-full px-3.5 py-2 text-sm rounded-xl border-2 border-brandInk focus:outline-none focus:border-brandPurple mb-2"
+        />
+        <input
+          type="text"
+          id="customer-address"
+          placeholder="Alamat Pengiriman / Patokan..."
+          class="w-full px-3.5 py-2 text-sm rounded-xl border-2 border-brandInk focus:outline-none focus:border-brandPurple"
+        />
+      </div>
+
+      <button
+        onclick="checkoutWhatsApp()"
+        class="w-full bg-brandPurple hover:bg-brandPurpleDark text-brandYellow font-condensed text-xl tracking-wider py-3.5 rounded-2xl pop-pill flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <span>📲 PESAN VIA WHATSAPP</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Custom Toast Notification (No alert() used!) -->
+  <div id="toast-box" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-4">
+    <div class="bg-brandInk text-brandYellow border-2 border-brandYellow px-5 py-2.5 rounded-full shadow-2xl font-condensed tracking-wide text-sm sm:text-base flex items-center gap-2">
+      <span id="toast-msg">Ditambahkan ke keranjang!</span>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+  <script>
+    // Product Catalog sesuai spesifikasi exact:
+    // 1. Keripik Pangsit 150gr (Balado & Jagung Bakar) = Rp 5.000
+    // 2. Es Teh Ukuran Jumbo = Rp 5.000
+    // 3. Paket Combo (Keripik Pangsit 150gr + Es Teh Jumbo) = Rp 10.000
+    const PRODUCTS = [
+      {
+        id: 'keripik-pangsit-150gr',
+        category: 'keripik',
+        badge: 'KEMASAN 150 GRAM 🔥',
+        badgeColor: 'bg-brandRed text-white',
+        name: 'Keripik Pangsit 150gr',
+        desc: 'Keripik pangsit goreng super renyah kemasan 150 gram dengan taburan bumbu melimpah. Tersedia 2 pilihan rasa favorit: Balado & Jagung Bakar.',
+        price: 5000,
+        image: 'pangsit.png',
+        fallback: 'https://placehold.co/500x500/5e17eb/FFE047?text=Keripik+Pangsit+150gr',
+        variantLabel: 'Pilih Varian Rasa (150gr):',
+        variants: ['Balado', 'Jagung Bakar'],
+      },
+      {
+        id: 'es-teh-jumbo',
+        category: 'esteh',
+        badge: 'UKURAN JUMBO 🧊',
+        badgeColor: 'bg-brandPurple text-brandYellow',
+        name: 'Es Teh Jumbo',
+        desc: 'Es Teh manis segar ukuran Jumbo dengan seduhan teh pilihan, 100% gula asli, dan es batu kristal melimpah. Pas banget buat teman ngemil!',
+        price: 5000,
+        image: 'esteh.png',
+        fallback: 'https://placehold.co/500x500/5e17eb/FFE047?text=Es+Teh+Jumbo',
+        variantLabel: 'Ukuran Cup:',
+        variants: ['Ukuran Jumbo'],
+      },
+      {
+        id: 'paket-combo',
+        category: 'kombo',
+        badge: 'PAKET LENGKAP ⭐',
+        badgeColor: 'bg-brandYellow text-brandInk',
+        name: 'Paket Combo (Keripik 150gr + Es Teh Jumbo)',
+        desc: '1 Pouch Keripik Pangsit 150gr (bebas pilih rasa Balado atau Jagung Bakar) + 1 Cup Es Teh Ukuran Jumbo super segar!',
+        price: 10000,
+        image: 'pangsit.png',
+        secondaryImage: 'esteh.png',
+        fallback: 'https://placehold.co/500x500/5e17eb/FFE047?text=Paket+Combo+10K',
+        variantLabel: 'Pilih Paket Rasa:',
+        variants: ['Balado + Es Teh Jumbo', 'Jagung Bakar + Es Teh Jumbo'],
+      },
+    ];
+
+    let cart = [];
+    let activeFilter = 'all';
+    let currentHeroMode = 'keripik';
+
+    // Format Rupiah
+    function formatRp(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    // Show non-blocking Toast notification
+    let toastTimer;
+    function showToast(message) {
+      const box = document.getElementById('toast-box');
+      const msg = document.getElementById('toast-msg');
+      msg.textContent = message;
+      box.classList.remove('opacity-0', '-translate-y-4');
+      box.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.add('opacity-0', '-translate-y-4');
+        box.classList.remove('opacity-100', 'translate-y-0');
+      }, 2400);
+    }
+
+    // Hero Interactive Product Switcher
+    function switchHeroProduct(mode) {
+      currentHeroMode = mode;
+      const bgWord = document.getElementById('hero-bg-word');
+      const primaryImg = document.getElementById('hero-primary-img');
+      const secondaryImg = document.getElementById('hero-secondary-img');
+      const tag = document.getElementById('hero-product-tag');
+      const title = document.getElementById('hero-product-title');
+      const price = document.getElementById('hero-product-price');
+      const btnKeripik = document.getElementById('btn-spotlight-keripik');
+      const btnEsteh = document.getElementById('btn-spotlight-esteh');
+
+      if (mode === 'keripik') {
+        bgWord.textContent = 'KRIUK!';
+        primaryImg.src = 'pangsit.png';
+        secondaryImg.src = 'esteh.png';
+        tag.textContent = 'KEMASAN 150 GRAM';
+        title.textContent = 'KERIPIK PANGSIT';
+        price.textContent = 'Rp 5.000';
+
+        btnKeripik.className = 'px-4 py-1.5 rounded-full font-condensed text-sm tracking-wider bg-brandYellow text-brandInk shadow transition-all cursor-pointer';
+        btnEsteh.className = 'px-4 py-1.5 rounded-full font-condensed text-sm tracking-wider text-white hover:text-brandYellow transition-all cursor-pointer';
+      } else {
+        bgWord.textContent = 'SEGAR!';
+        primaryImg.src = 'esteh.png';
+        secondaryImg.src = 'pangsit.png';
+        tag.textContent = '1 UKURAN JUMBO';
+        title.textContent = 'ES TEH JUMBO';
+        price.textContent = 'Rp 5.000';
+
+        btnEsteh.className = 'px-4 py-1.5 rounded-full font-condensed text-sm tracking-wider bg-brandYellow text-brandInk shadow transition-all cursor-pointer';
+        btnKeripik.className = 'px-4 py-1.5 rounded-full font-condensed text-sm tracking-wider text-white hover:text-brandYellow transition-all cursor-pointer';
+      }
+    }
+
+    function toggleHeroProduct() {
+      switchHeroProduct(currentHeroMode === 'keripik' ? 'esteh' : 'keripik');
+    }
+
+    // Filter Menu Cards
+    function filterMenu(category) {
+      activeFilter = category;
+      document.querySelectorAll('.filter-btn').forEach((btn) => {
+        if (btn.dataset.filter === category) {
+          btn.classList.remove('bg-white', 'text-brandInk');
+          btn.classList.add('bg-brandPurple', 'text-white');
+        } else {
+          btn.classList.remove('bg-brandPurple', 'text-white');
+          btn.classList.add('bg-white', 'text-brandInk');
+        }
+      });
+      renderProducts();
+    }
+
+    // Render Menu Grid
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      const filtered = activeFilter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter((p) => p.category === activeFilter);
+
+      grid.innerHTML = filtered
+        .map(
+          (product) => `
+          <article class="pop-card rounded-[2rem] overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Image Container -->
+              <div class="relative h-64 sm:h-72 bg-brandPurple overflow-hidden border-b-3 border-brandInk flex items-center justify-center p-4">
+                <img
+                  src="${product.image}"
+                  alt="${product.name}"
+                  class="w-full h-full object-contain transition-transform duration-500 hover:scale-105 drop-shadow-[0_12px_18px_rgba(26,11,59,0.45)]"
+                  onerror="this.onerror=null; this.src='${product.fallback}';"
+                />
+                ${
+                  product.secondaryImage
+                    ? `<img
+                        src="${product.secondaryImage}"
+                        alt="Es Teh Jumbo"
+                        class="w-24 h-28 object-contain bg-brandYellow/95 p-1.5 rounded-2xl border-3 border-white shadow-xl absolute bottom-3 right-3 rotate-6"
+                      />`
+                    : ''
+                }
+                <span class="absolute top-3 left-3 ${product.badgeColor} font-condensed text-xs sm:text-sm tracking-wider px-3.5 py-1 rounded-full border-2 border-brandInk shadow">
+                  ${product.badge}
+                </span>
+              </div>
+
+              <!-- Card Details -->
+              <div class="p-5 sm:p-6">
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="font-condensed text-2xl text-brandInk leading-tight">${product.name}</h3>
+                  <span class="font-condensed text-xl text-brandPurple bg-brandYellow px-3 py-0.5 rounded-xl border-2 border-brandInk shrink-0">
+                    ${formatRp(product.price)}
+                  </span>
+                </div>
+                <p class="text-xs sm:text-sm text-brandInk/75 mt-2 leading-relaxed">
+                  ${product.desc}
+                </p>
+
+                <!-- Variant Selector -->
+                <div class="mt-4">
+                  <label for="variant-${product.id}" class="block text-[11px] font-bold uppercase tracking-wider text-brandInk/60 mb-1">
+                    ${product.variantLabel}
+                  </label>
+                  <select
+                    id="variant-${product.id}"
+                    class="w-full bg-brandCream border-2 border-brandInk rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-brandInk focus:outline-none focus:border-brandPurple"
+                  >
+                    ${product.variants.map((v) => `<option value="${v}">${v}</option>`).join('')}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add to Cart Action -->
+            <div class="px-5 sm:px-6 pb-5 sm:pb-6">
+              <button
+                onclick="addToCart('${product.id}')"
+                class="w-full bg-brandPurple hover:bg-brandPurpleDark text-white hover:text-brandYellow font-condensed tracking-wider text-base sm:text-lg py-3 rounded-2xl pop-pill flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>+ TAMBAH KE KERANJANG</span>
+              </button>
+            </div>
+          </article>
+        `
+        )
+        .join('');
+    }
+
+    // Add Item to Cart
+    function addToCart(productId) {
+      const product = PRODUCTS.find((p) => p.id === productId);
+      if (!product) return;
+
+      const variantSelect = document.getElementById(`variant-${product.id}`);
+      const selectedVariant = variantSelect ? variantSelect.value : product.variants[0];
+      const cartKey = `${product.id}__${selectedVariant}`;
+
+      const existing = cart.find((item) => item.key === cartKey);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          key: cartKey,
+          id: product.id,
+          name: product.name,
+          variant: selectedVariant,
+          price: product.price,
+          image: product.image,
+          qty: 1,
+        });
+      }
+
+      updateCartUI();
+      showToast(`✅ ${product.name} (${selectedVariant}) masuk keranjang!`);
+    }
+
+    // Update Quantity in Cart
+    function changeQty(cartKey, delta) {
+      const idx = cart.findIndex((item) => item.key === cartKey);
+      if (idx === -1) return;
+
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    // Refresh Cart Badges & Drawer Contents
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      document.getElementById('nav-cart-badge').textContent = totalItems;
+      document.getElementById('floating-cart-count').textContent = totalItems;
+      document.getElementById('footer-cart-count').textContent = totalItems;
+      document.getElementById('cart-total').textContent = formatRp(totalPrice);
+
+      const container = document.getElementById('cart-items-container');
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12 px-4">
+            <div class="text-5xl mb-3">🛍️</div>
+            <h4 class="font-condensed text-2xl text-brandInk">KERANJANG MASIH KOSONG</h4>
+            <p class="text-sm text-brandInk/70 mt-1">
+              Yuk pilih Keripik Pangsit kriuk dan Es Teh Segar favoritmu dulu!
+            </p>
+            <button
+              onclick="toggleCartDrawer(false)"
+              class="mt-5 bg-brandYellow text-brandInk font-condensed px-6 py-2.5 rounded-full pop-pill cursor-pointer"
+            >
+              PILIH MENU SEKARANG
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cart
+        .map(
+          (item) => `
+          <div class="bg-white rounded-2xl p-3.5 border-2 border-brandInk shadow-[3px_3px_0px_#1A0B3B] flex items-center gap-3">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-contain bg-brandPurple/10 p-1 border border-brandInk shrink-0" />
+            <div class="flex-1 min-w-0">
+              <h5 class="font-condensed text-base text-brandInk truncate">${item.name}</h5>
+              <span class="inline-block text-[11px] font-semibold bg-brandCream text-brandPurple px-2 py-0.5 rounded-md border border-brandPurple/30">
+                ${item.variant}
+              </span>
+              <p class="font-bold text-sm text-brandRed mt-1">${formatRp(item.price * item.qty)}</p>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button
+                onclick="changeQty('${item.key}', -1)"
+                class="w-7 h-7 rounded-lg bg-brandCream border-2 border-brandInk font-bold text-brandInk hover:bg-brandRed hover:text-white cursor-pointer"
+              >-</button>
+              <span class="w-6 text-center font-bold text-sm">${item.qty}</span>
+              <button
+                onclick="changeQty('${item.key}', 1)"
+                class="w-7 h-7 rounded-lg bg-brandYellow border-2 border-brandInk font-bold text-brandInk hover:bg-brandPurple hover:text-white cursor-pointer"
+              >+</button>
+            </div>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    // Open / Close Cart Drawer
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const backdrop = document.getElementById('cart-backdrop');
+      if (open) {
+        backdrop.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        backdrop.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    // Generate Formatted WhatsApp Order Message
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        showToast('⚠️ Keranjangmu masih kosong nih!');
+        return;
+      }
+
+      const nameInput = document.getElementById('customer-name').value.trim() || 'Kakak Pelanggan';
+      const addressInput = document.getElementById('customer-address').value.trim() || 'Ambil di tempat / Konfirmasi lokasi';
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      let orderLines = cart
+        .map((item, idx) => `${idx + 1}. *${item.name}* (${item.variant}) x${item.qty} = ${formatRp(item.price * item.qty)}`)
+        .join('%0A');
+
+      const message =
+        `Halo *PANGS! SNACK* (@pangs.snack)! Saya mau pesan:%0A%0A` +
+        `${orderLines}%0A%0A` +
+        `*Total Bayar:* ${formatRp(totalPrice)} (Free Delivery)%0A` +
+        `*Nama:* ${encodeURIComponent(nameInput)}%0A` +
+        `*Alamat:* ${encodeURIComponent(addressInput)}%0A%0A` +
+        `Terima kasih!`;
+
+      // Nomor WhatsApp PANGS! SNACK (083895345454)
+      const whatsappNumber = '6283895345454';
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank', 'noopener,noreferrer');
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>
